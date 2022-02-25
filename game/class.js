@@ -1,8 +1,9 @@
-class Grass {
-    constructor(x, y) {
-        this.x = x
-        this.y = y
-        this.multiply = 0
+class LivingCreature {
+    constructor(x, y, index) {
+        this.x = x;
+        this.y = y;
+        this.multiply = 0;
+        this.index = index;
         this.directions = [
             [this.x - 1, this.y - 1],
             [this.x, this.y - 1],
@@ -15,19 +16,28 @@ class Grass {
         ];
 
     }
-    chooseCell(character) {
+    chooseCell(ch) {
         var found = [];
         for (var i in this.directions) {
             var x = this.directions[i][0];
             var y = this.directions[i][1];
             if (x >= 0 && x < matrix[0].length && y >= 0 && y < matrix.length) {
-                if (matrix[y][x] == character) {
+                if (matrix[y][x] == ch) {
                     found.push(this.directions[i]);
                 }
             }
         }
         return found;
     }
+}
+
+
+
+
+
+
+
+class Grass extends LivingCreature {
 
     mul() {
         this.multiply++;
@@ -63,25 +73,21 @@ class Grass {
             }
 
         }
-         else {
+        else {
             this.mul()
         }
-       
+
     }
 
 
 }
 
 
-class GrassEater {
-    constructor(x, y) {
-        this.x = x
-        this.y = y
-        this.multiply = 0
-        this.directions = [];
-        this.energy = 8
+class GrassEater extends LivingCreature {
+    constructor(x, y, index) {
+        super(x, y, index);
+        this.energy = 8;
     }
-
     getNewCoordinates() {
         this.directions = [
             [this.x - 1, this.y - 1],
@@ -95,19 +101,10 @@ class GrassEater {
         ];
     }
     chooseCell(character) {
-        this.getNewCoordinates()
-        var found = [];
-        for (var i in this.directions) {
-            var x = this.directions[i][0];
-            var y = this.directions[i][1];
-            if (x >= 0 && x < matrix[0].length && y >= 0 && y < matrix.length) {
-                if (matrix[y][x] == character) {
-                    found.push(this.directions[i]);
-                }
-            }
-        }
-        return found;
+        this.getNewCoordinates();
+        return super.chooseCell(character);
     }
+
 
     mul() {
         this.multiply++;
@@ -179,16 +176,11 @@ class GrassEater {
 
 
 
-
-class Predator {
-    constructor(x, y) {
-        this.x = x
-        this.y = y
-        this.multiply = 0
-        this.directions = [];
-        this.energy = 8
+class Predator extends LivingCreature {
+    constructor(x, y, index) {
+        super(x, y, index);
+        this.energy = 8;
     }
-
     getNewCoordinates() {
         this.directions = [
             [this.x - 1, this.y - 1],
@@ -202,19 +194,10 @@ class Predator {
         ];
     }
     chooseCell(character) {
-        this.getNewCoordinates()
-        var found = [];
-        for (var i in this.directions) {
-            var x = this.directions[i][0];
-            var y = this.directions[i][1];
-            if (x >= 0 && x < matrix[0].length && y >= 0 && y < matrix.length) {
-                if (matrix[y][x] == character) {
-                    found.push(this.directions[i]);
-                }
-            }
-        }
-        return found;
+        this.getNewCoordinates();
+        return super.chooseCell(character);
     }
+
     move() {
         this.energy--
         var emptyCells = this.chooseCell(0);
@@ -281,15 +264,11 @@ class Predator {
     }
 }
 
-class Gardener {
-    constructor(x, y) {
-        this.x = x
-        this.y = y
-        this.multiply = 0
-        this.directions = [];
-        this.energy = 10
+class Gardener extends LivingCreature {
+    constructor(x, y, index) {
+        super(x, y, index);
+        this.energy = 10;
     }
-
     getNewCoordinates() {
         this.directions = [
             [this.x - 1, this.y - 1],
@@ -303,19 +282,10 @@ class Gardener {
         ];
     }
     chooseCell(character) {
-        this.getNewCoordinates()
-        var found = [];
-        for (var i in this.directions) {
-            var x = this.directions[i][0];
-            var y = this.directions[i][1];
-            if (x >= 0 && x < matrix[0].length && y >= 0 && y < matrix.length) {
-                if (matrix[y][x] == character) {
-                    found.push(this.directions[i]);
-                }
-            }
-        }
-        return found;
+        this.getNewCoordinates();
+        return super.chooseCell(character);
     }
+
     move() {
         this.energy--
         var emptyCells = this.chooseCell(0);
@@ -335,9 +305,9 @@ class Gardener {
     }
 
     eat() {
-        var emptyCells = this.chooseCell(2)  
+        var emptyCells = this.chooseCell(2)
         var newCell = random(emptyCells);
-        var emptyCells1 = this.chooseCell(3)  
+        var emptyCells1 = this.chooseCell(3)
         var newCell1 = random(emptyCells1);
         if (newCell) {
             this.energy += 3
@@ -369,7 +339,7 @@ class Gardener {
                 }
             }
 
-        }  else {
+        } else {
             this.move()
         }
 
@@ -399,15 +369,7 @@ class Gardener {
         }
     }
 }
-class Water {
-    constructor(x, y) {
-        this.x = x
-        this.y = y
-        this.multiply = 0
-        this.directions = [];
-        this.energy = 10
-    }
-
+class Water extends LivingCreature {
     getNewCoordinates() {
         this.directions = [
             [this.x - 1, this.y - 1],
@@ -421,20 +383,11 @@ class Water {
         ];
     }
     chooseCell(character) {
-        this.getNewCoordinates()
-        var found = [];
-        for (var i in this.directions) {
-            var x = this.directions[i][0];
-            var y = this.directions[i][1];
-            if (x >= 0 && x < matrix[0].length && y >= 0 && y < matrix.length) {
-                if (matrix[y][x] == character) {
-                    found.push(this.directions[i]);
-                }
-            }
-        }
-        return found;
+        this.getNewCoordinates();
+        return super.chooseCell(character);
     }
-    
+
+
     mul() {
         this.multiply++;
         var emptyCells = this.chooseCell(0);
