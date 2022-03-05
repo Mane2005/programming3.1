@@ -35,8 +35,8 @@ class Grass extends LivingCreature {
                 }
             }
 
-        } else if (newCell) {
-            this.energy -= 3
+        } else if (newCell1) {
+            this.multiply -= 15
             var newX = newCell1[0];
             var newY = newCell1[1];
             matrix[newY][newX] = matrix[this.y][this.x]

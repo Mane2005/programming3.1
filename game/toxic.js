@@ -22,13 +22,13 @@ class Toxic extends LivingCreature {
         var emptyCells = this.chooseCell(0);
         var newCell = random(emptyCells);
 
-        if (newCell && this.multiply >= 20) {
+        if (newCell && this.multiply >= 80) {
             var newX = newCell[0];
             var newY = newCell[1];
-            matrix[newY][newX] = 6;
+            matrix[newY][newX] = 7;
 
-            var newwater = new Water(newX, newY);
-            waterArr.push(newwater);
+            var newtoxic = new Toxic(newX, newY);
+            toxicArr.push(newtoxic);
             this.multiply = 0;
         }
     }
