@@ -2,6 +2,7 @@ class Gardener extends LivingCreature {
     constructor(x, y, index) {
         super(x, y, index);
         this.energy = 10;
+        this.gender = male;
     }
     getNewCoordinates() {
         this.directions = [
