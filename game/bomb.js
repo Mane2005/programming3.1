@@ -18,6 +18,42 @@ class Bomb extends LivingCreature {
     outbreak() {
         var emptyCells = this.chooseCell(2);
         var newCell = random(emptyCells);
+        if(clickCount = 1 && newCell && this.multiply >= 60){
+            var newX = newCell[0];
+            var newY = newCell[1];
+            matrix[newY][newX] = 1;
+
+            var newGrass = new Grass(newX, newY);
+            grassArr.push(newGrass);
+            this.multiply = 0;
+        }
+         if(clickCount = 2 && newCell && this.multiply >= 7){
+            var newX = newCell[0];
+            var newY = newCell[1];
+            matrix[newY][newX] = 1;
+
+            var newGrass = new Grass(newX, newY);
+            grassArr.push(newGrass);
+            this.multiply = 0;
+        }
+         if(clickCount = 3 && newCell && this.multiply >= 15){
+            var newX = newCell[0];
+            var newY = newCell[1];
+            matrix[newY][newX] = 1;
+
+            var newGrass = new Grass(newX, newY);
+            grassArr.push(newGrass);
+            this.multiply = 0;
+        }
+        if(clickCount = 4 && newCell && this.multiply >= 40){
+            var newX = newCell[0];
+            var newY = newCell[1];
+            matrix[newY][newX] = 1;
+
+            var newGrass = new Grass(newX, newY);
+            grassArr.push(newGrass);
+            this.multiply = 0;
+        }
         if (newCell) {
             var newX = newCell[0];
             var newY = newCell[1];

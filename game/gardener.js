@@ -2,7 +2,6 @@ class Gardener extends LivingCreature {
     constructor(x, y, index) {
         super(x, y, index);
         this.energy = 10;
-        this.gender = male;
     }
     getNewCoordinates() {
         this.directions = [
@@ -83,7 +82,42 @@ class Gardener extends LivingCreature {
         this.multiply++;
         var emptyCells = this.chooseCell(0);
         var newCell = random(emptyCells);
+        if (clickCount = 1 && newCell && this.multiply >= 90) {
+            var newX = newCell[0];
+            var newY = newCell[1];
+            matrix[newY][newX] = 1;
 
+            var newGrass = new Grass(newX, newY);
+            grassArr.push(newGrass);
+            this.multiply = 0;
+        }
+        if (clickCount = 2 && newCell && this.multiply >= 30) {
+            var newX = newCell[0];
+            var newY = newCell[1];
+            matrix[newY][newX] = 1;
+
+            var newGrass = new Grass(newX, newY);
+            grassArr.push(newGrass);
+            this.multiply = 0;
+        }
+        if (clickCount = 3 && newCell && this.multiply >= 25) {
+            var newX = newCell[0];
+            var newY = newCell[1];
+            matrix[newY][newX] = 1;
+
+            var newGrass = new Grass(newX, newY);
+            grassArr.push(newGrass);
+            this.multiply = 0;
+        }
+        if (clickCount = 4 && newCell && this.multiply >= 50) {
+            var newX = newCell[0];
+            var newY = newCell[1];
+            matrix[newY][newX] = 1;
+
+            var newGrass = new Grass(newX, newY);
+            grassArr.push(newGrass);
+            this.multiply = 0;
+        }
         if (newCell && this.multiply >= 25) {
             var newX = newCell[0];
             var newY = newCell[1];

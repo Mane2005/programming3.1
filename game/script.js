@@ -166,3 +166,28 @@ function draw() {
     }
 
 }
+
+var clickCount = 0;
+function clickHandlerW(evt){
+   clickCount = 1;
+}
+function clickHandlerS(evt){
+    clickCount = 2;
+ }
+ 
+ function clickHandlerSp(evt){
+    clickCount = 3;
+ }
+ 
+ function clickHandlerA(evt){
+    clickCount = 4;
+ }
+ 
+var w = document.getElementById("w");
+w.addEventListener("click", clickHandlerW);
+var s = document.getElementById("s");
+s.addEventListener("click", clickHandlerS);
+var sp = document.getElementById("sp");
+s.addEventListener("click", clickHandlerSp);
+var a = document.getElementById("a");
+a.addEventListener("click", clickHandlerA);
