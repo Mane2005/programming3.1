@@ -34,7 +34,7 @@ class GrassEater extends LivingCreature {
             grassArr.push(newGrass);
             this.multiply = 0;
         }
-        if (clickCount = 2 && newCell && this.multiply >= 40) {
+        else if (clickCount = 2 && newCell && this.multiply >= 40) {
             var newX = newCell[0];
             var newY = newCell[1];
             matrix[newY][newX] = 1;
@@ -43,7 +43,7 @@ class GrassEater extends LivingCreature {
             grassArr.push(newGrass);
             this.multiply = 0;
         }
-        if (clickCount = 3 && newCell && this.multiply >= 30) {
+        else if (clickCount = 3 && newCell && this.multiply >= 30) {
             var newX = newCell[0];
             var newY = newCell[1];
             matrix[newY][newX] = 1;
@@ -52,7 +52,7 @@ class GrassEater extends LivingCreature {
             grassArr.push(newGrass);
             this.multiply = 0;
         }
-        if (clickCount = 4 && newCell && this.multiply >= 10) {
+        else if (clickCount = 4 && newCell && this.multiply >= 10) {
             var newX = newCell[0];
             var newY = newCell[1];
             matrix[newY][newX] = 1;
@@ -62,14 +62,16 @@ class GrassEater extends LivingCreature {
             this.multiply = 0;
         }
 
-        if (newCell && this.multiply >= 15) {
-            var newX = newCell[0];
-            var newY = newCell[1];
-            matrix[newY][newX] = 2;
+        else {
+            if (newCell && this.multiply >= 15) {
+                var newX = newCell[0];
+                var newY = newCell[1];
+                matrix[newY][newX] = 2;
 
-            var newGr = new GrassEater(newX, newY);
-            grassEaterArr.push(newGr);
-            this.multiply = 0;
+                var newGr = new GrassEater(newX, newY);
+                grassEaterArr.push(newGr);
+                this.multiply = 0;
+            }
         }
     }
 

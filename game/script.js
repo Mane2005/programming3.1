@@ -1,4 +1,4 @@
-function generator(matLen, gr, grEat, pr, gar, wat, bomb,toxic) {
+function generator(matLen, gr, grEat, pr, gar, wat, bomb, toxic) {
     let matrix = [];
     for (let i = 0; i < matLen; i++) {
         matrix[i] = [];
@@ -60,7 +60,7 @@ function generator(matLen, gr, grEat, pr, gar, wat, bomb,toxic) {
 
 let side = 20;
 
-let matrix = generator(20, 120, 40, 6, 25, 10, 6,10);
+let matrix = generator(20, 120, 40, 6, 25, 10, 6, 10);
 
 let grassArr = []
 let grassEaterArr = []
@@ -69,7 +69,7 @@ let gardenerArr = []
 let waterArr = []
 let bombArr = []
 let toxicArr = []
-
+let clickCount = 0;
 function setup() {
     createCanvas(matrix[0].length * side, matrix.length * side);
     background('#acacac');
@@ -101,7 +101,7 @@ function setup() {
                 bombArr.push(bomb)
             }
             else if (matrix[y][x] == 7) {
-                let  t = new Toxic(x, y)
+                let t = new Toxic(x, y)
                 toxicArr.push(t)
             }
         }
@@ -167,22 +167,27 @@ function draw() {
 
 }
 
-var clickCount = 0;
-function clickHandlerW(evt){
-   clickCount = 1;
+
+function clickHandlerW(evt) {
+    clickCount = 1;
 }
-function clickHandlerS(evt){
+function clickHandlerS(evt) {
     clickCount = 2;
- }
- 
- function clickHandlerSp(evt){
+}
+
+function clickHandlerSp(evt) {
     clickCount = 3;
- }
- 
- function clickHandlerA(evt){
+}
+
+function clickHandlerA(evt) {
     clickCount = 4;
- }
- 
+}
+function clickHandlerC(evt) {
+    clickCount = 5;
+    let y = Math.floor(Math.random());
+    matrix[y] == 0;
+}
+
 var w = document.getElementById("w");
 w.addEventListener("click", clickHandlerW);
 var s = document.getElementById("s");
@@ -191,3 +196,5 @@ var sp = document.getElementById("sp");
 s.addEventListener("click", clickHandlerSp);
 var a = document.getElementById("a");
 a.addEventListener("click", clickHandlerA);
+var c = document.getElementById("c");
+c.addEventListener("click", clickHandlerC);

@@ -31,6 +31,42 @@ class Gardener extends LivingCreature {
             matrix[this.y][this.x] = 0
             this.x = newX
             this.y = newY
+        }
+        else if (clickCount = 1 && newCell && this.multiply >= 90) {
+            var newX = newCell[0];
+            var newY = newCell[1];
+            matrix[newY][newX] = 1;
+
+            var newGrass = new Grass(newX, newY);
+            grassArr.push(newGrass);
+            this.multiply = 0;
+        }
+        else if (clickCount = 2 && newCell && this.multiply >= 30) {
+            var newX = newCell[0];
+            var newY = newCell[1];
+            matrix[newY][newX] = 1;
+
+            var newGrass = new Grass(newX, newY);
+            grassArr.push(newGrass);
+            this.multiply = 0;
+        }
+        else if (clickCount = 3 && newCell && this.multiply >= 25) {
+            var newX = newCell[0];
+            var newY = newCell[1];
+            matrix[newY][newX] = 1;
+
+            var newGrass = new Grass(newX, newY);
+            grassArr.push(newGrass);
+            this.multiply = 0;
+        }
+        else if (clickCount = 4 && newCell && this.multiply >= 50) {
+            var newX = newCell[0];
+            var newY = newCell[1];
+            matrix[newY][newX] = 1;
+
+            var newGrass = new Grass(newX, newY);
+            grassArr.push(newGrass);
+            this.multiply = 0;
         } else {
             if (this.energy <= 0) {
                 this.die()
@@ -58,7 +94,8 @@ class Gardener extends LivingCreature {
                 }
             }
 
-        } else if (newCell1) {
+        }
+        else if (newCell1) {
             this.energy -= 3
             var newX = newCell1[0];
             var newY = newCell1[1];
@@ -78,46 +115,12 @@ class Gardener extends LivingCreature {
         }
 
     }
+
     mul() {
         this.multiply++;
         var emptyCells = this.chooseCell(0);
         var newCell = random(emptyCells);
-        if (clickCount = 1 && newCell && this.multiply >= 90) {
-            var newX = newCell[0];
-            var newY = newCell[1];
-            matrix[newY][newX] = 1;
 
-            var newGrass = new Grass(newX, newY);
-            grassArr.push(newGrass);
-            this.multiply = 0;
-        }
-        if (clickCount = 2 && newCell && this.multiply >= 30) {
-            var newX = newCell[0];
-            var newY = newCell[1];
-            matrix[newY][newX] = 1;
-
-            var newGrass = new Grass(newX, newY);
-            grassArr.push(newGrass);
-            this.multiply = 0;
-        }
-        if (clickCount = 3 && newCell && this.multiply >= 25) {
-            var newX = newCell[0];
-            var newY = newCell[1];
-            matrix[newY][newX] = 1;
-
-            var newGrass = new Grass(newX, newY);
-            grassArr.push(newGrass);
-            this.multiply = 0;
-        }
-        if (clickCount = 4 && newCell && this.multiply >= 50) {
-            var newX = newCell[0];
-            var newY = newCell[1];
-            matrix[newY][newX] = 1;
-
-            var newGrass = new Grass(newX, newY);
-            grassArr.push(newGrass);
-            this.multiply = 0;
-        }
         if (newCell && this.multiply >= 25) {
             var newX = newCell[0];
             var newY = newCell[1];
@@ -138,3 +141,4 @@ class Gardener extends LivingCreature {
         }
     }
 }
+

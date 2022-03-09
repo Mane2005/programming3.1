@@ -33,7 +33,7 @@ class Predator extends LivingCreature {
             grassArr.push(newGrass);
             this.multiply = 0;
         }
-        if (clickCount = 2 && newCell && this.multiply >= 20) {
+        else if (clickCount = 2 && newCell && this.multiply >= 20) {
             var newX = newCell[0];
             var newY = newCell[1];
             matrix[newY][newX] = 1;
@@ -42,7 +42,7 @@ class Predator extends LivingCreature {
             grassArr.push(newGrass);
             this.multiply = 0;
         }
-        if (clickCount = 3 && newCell && this.multiply >= 50) {
+       else if (clickCount = 3 && newCell && this.multiply >= 50) {
             var newX = newCell[0];
             var newY = newCell[1];
             matrix[newY][newX] = 1;
@@ -51,7 +51,7 @@ class Predator extends LivingCreature {
             grassArr.push(newGrass);
             this.multiply = 0;
         }
-        if (clickCount = 4 && newCell && this.multiply >= 5) {
+        else if (clickCount = 4 && newCell && this.multiply >= 5) {
             var newX = newCell[0];
             var newY = newCell[1];
             matrix[newY][newX] = 1;
@@ -60,7 +60,7 @@ class Predator extends LivingCreature {
             grassArr.push(newGrass);
             this.multiply = 0;
         }
-        if (newCell && this.energy >= 0) {
+        else if (newCell && this.energy >= 0) {
             var newX = newCell[0];
             var newY = newCell[1];
             matrix[newY][newX] = matrix[this.y][this.x]
@@ -68,10 +68,11 @@ class Predator extends LivingCreature {
             this.x = newX
             this.y = newY
         }
-        if (this.energy < 0) {
-            this.die()
+        else {
+            if (this.energy < 0) {
+                this.die()
+            }
         }
-
     }
     eat() {
         var emptyCells = this.chooseCell(2);
