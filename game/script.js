@@ -167,6 +167,12 @@ function draw() {
 
 }
 
+// function mul() {
+//     if (this.gender = "male") {
+//         gardenerArr[i].mul()
+//     }
+// }
+// setTimeout(mul(),3000)
 
 function clickHandlerW(evt) {
     clickCount = 1;
@@ -184,8 +190,8 @@ function clickHandlerA(evt) {
 }
 function clickHandlerC(evt) {
     clickCount = 5;
-    let y = Math.floor(Math.random());
-    matrix[y] == 0;
+    let i= Math.floor(Math.random() * matrix.length);
+    grassArr.splice(i, 1);
 }
 
 var w = document.getElementById("w");

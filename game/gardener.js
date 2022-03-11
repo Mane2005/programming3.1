@@ -2,6 +2,7 @@ class Gardener extends LivingCreature {
     constructor(x, y, index) {
         super(x, y, index);
         this.energy = 10;
+        this.gender = "male";
     }
     getNewCoordinates() {
         this.directions = [
@@ -19,7 +20,6 @@ class Gardener extends LivingCreature {
         this.getNewCoordinates();
         return super.chooseCell(character);
     }
-
     move() {
         this.energy--
         var emptyCells = this.chooseCell(0);
@@ -73,7 +73,6 @@ class Gardener extends LivingCreature {
             }
         }
     }
-
     eat() {
         var emptyCells = this.chooseCell(2)
         var newCell = random(emptyCells);
@@ -115,7 +114,6 @@ class Gardener extends LivingCreature {
         }
 
     }
-
     mul() {
         this.multiply++;
         var emptyCells = this.chooseCell(0);
@@ -141,4 +139,5 @@ class Gardener extends LivingCreature {
         }
     }
 }
+
 

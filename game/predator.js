@@ -2,6 +2,7 @@ class Predator extends LivingCreature {
     constructor(x, y, index) {
         super(x, y, index);
         this.energy = 8;
+        this.gender = "male"
     }
     getNewCoordinates() {
         this.directions = [
